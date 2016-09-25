@@ -1,0 +1,20 @@
+{
+  "name": "nwind_sale_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "./node_modules/browser-sync/bin/browser-sync.js start -s -f 'index.html' 'app.js' "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "sequelize": "^3.24.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.16.0"
+  }
+}

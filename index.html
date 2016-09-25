@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Acme Sales Angular</title>
+	<link rel="stylesheet"  href="/node_modules/bootstrap/dist/css/bootstrap.css"/>
+	<link rel="stylesheet"  href="./style.css">
+	<script src="/node_modules/angular/angular.js"></script>
+	<script src="/app.js"></script>
+</head>
+<body ng-app='app'>
+	<div class='container'>
+		<h1>Acme Sales Angular</h1> 
+		<ul class='nav nav-tabs' style="margin: 10px">
+			<li class='active'><a href="#">Home</a></li>
+			<li><a href="#">Regions</a></li>
+			<li ><a href="#">SalesPeople</a></li>
+		</ul>
+		<div ng-controller='salesCtlr' class='sumHeader'>
+			<div class='well sum'>
+				We Have {{ totalSalesPeople }} Sales People
+			</div>	
+			<div class='well sum'>
+				We Have {{ numberRegions }} Regions
+			</div>
+		</div>
+		<div>
+			<div ng-show='false' class='well well-lg' style='margin-top: 10px'>
+				Welcome to Acme Sales!
+			</div>
+			
+			<!-- regions: -->
+			<div ng-show='true' ng-controller='regionCtlr'>
+				<div class='well'>
+					<div class='form-group'>
+						<input class='form-control' ng-model='zipcode'/>
+					</div>
+					<button class='btn btn-primary' ng-disabled='!zipcode' ng-click='create(region)'>Create Sales Region</button>
+				</div>
+	
+				<ul class='list-group' ng-repeat='region in regions'>
+					<li class='list-group-item'>
+						{{ region.zipcode}} 
+						<button ng-click='destroy(region)' class='pull-right btn btn-danger'>delete
+							
+						</button>
+						<br clear='all' >
+
+					</li>
+				</ul>
+			</div>
+			
+			<!-- salespeople -->
+			<div ng-show='true' ng-controller='salesPersonCtlr'>
+				<div class='well'>
+					<div class='form-group'>
+						<input class='form-control' ng-model='name' />
+					</div>
+					<button ng-disabled='!name' ng-click='create(name)' class='btn btn-primary'>Create Sales Person</button>
+				</div>
+
+				<ul class='list-group' ng-repeat='salesPerson in salesPeople'>
+					<li class='list-group-item'>
+					{{ salesPerson.name}} 
+					<button ng-click='destroy(salesPerson)' class='btn btn-danger pull-right'>delete</button>
+					<br clear='all'>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- home -->
+			<div ng-show='false' class='well well-lg' style='margin-top: 10px'>
+				Welcome to Acme Sales!
+			</div>
+		</div>
+
+		
+
+			
+		
+	</div>
+
+
+</body>
+</html>
