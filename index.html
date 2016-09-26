@@ -10,24 +10,33 @@
 </head>
 <body ng-app='app'>
 	<div class='container'>
-		<h1>Acme Sales Angular</h1> 
-		<ul class='nav nav-tabs' style="margin: 10px">
-			<li ui-class-active='active'><a ui-sref="home">Home</a></li>
-			<li ui-class-active='active'><a ui-sref="regions">Regions</a></li>
-			<li ui-class-active='active'><a ui-sref="salesPeople">SalesPeople</a></li>
-		</ul>
+		<div ng-controller='onPageLoad'>
+			<h1>Acme Sales Angular</h1> 
+			<ul class='nav nav-tabs' style="margin: 10px">
+				<li ui-class-active='active'><a ui-sref="home">Home</a></li>
+				<li ui-class-active='active'><a ui-sref="regions">Regions</a></li>
+				<li ui-class-active='active'><a ui-sref="salesPeople">SalesPeople</a></li>
+			</ul>
+		</div>
 		
-		<div ng-controller='salesCtlr' class='sumHeader'>
-			<div class='well sum'>
+		<div ng-controller='summaryCtlr' class='sumHeader'>
+			<div class='  alert alert-success' ng-if='totalSalesPeople >= 4'>
 				We Have {{ totalSalesPeople }} Sales People
 			</div>	
-			<div class='well sum'>
+			<div class='well sum' ng-if='totalSalesPeople < 4'>
+				We Have {{ totalSalesPeople }} Sales People
+			</div>
+			<div class='alert alert-success' ng-if='numberRegions >= 4'>
+				We Have {{ numberRegions }} Regions
+			</div>	
+			<div class='well sum' ng-if='numberRegions < 4'>
 				We Have {{ numberRegions }} Regions
 			</div>
 		</div>
 
 		<ui-view></ui-view>
 
+	</div>	
 
 </body>
 </html>
