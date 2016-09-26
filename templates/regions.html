@@ -1,0 +1,20 @@
+<!-- regions: -->
+<div ng-show='true' ng-controller='regionCtlr'>
+	<div class='well'>
+		<div class='form-group'>
+			<input class='form-control' ng-model='zipcode'/>
+		</div>
+		<button class='btn btn-primary' ng-disabled='!zipcode' ng-click='create(region)'>Create Sales Region</button>
+	</div>
+
+	<ul class='list-group' ng-repeat='region in regions'>
+		<li class='list-group-item'>
+			{{ region.zipcode}} 
+			<button ng-click='destroy(region)' class='pull-right btn btn-danger'>delete
+				
+			</button>
+			<br clear='all' >
+
+		</li>
+	</ul>
+</div>

@@ -1,4 +1,25 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['ui.router']);
+
+angular.module('app')
+	.config(function($stateProvider, $urlRouterProvider){
+		$stateProvider
+		.state('home',{
+			url: '/',
+			templateUrl:'./templates/home.html'
+		})
+
+		.state('regions',{
+			url: '/regions',
+			templateUrl:'./templates/regions.html'
+		})
+
+		.state('salesPeople',{
+			url:'/salesPeople',
+			templateUrl:'./templates/salespeople.html'
+		})
+
+		$urlRouterProvider.otherwise('/')	
+	})
 
 app.controller('salesCtlr', function($scope){
 	$scope.$on('numberSalesPeople',function(obj, num){

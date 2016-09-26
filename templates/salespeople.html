@@ -1,0 +1,17 @@
+<!-- salespeople -->
+<div ng-show='true' ng-controller='salesPersonCtlr'>
+	<div class='well'>
+		<div class='form-group'>
+			<input class='form-control' ng-model='name' />
+		</div>
+		<button ng-disabled='!name' ng-click='create(name)' class='btn btn-primary'>Create Sales Person</button>
+	</div>
+
+	<ul class='list-group' ng-repeat='salesPerson in salesPeople'>
+		<li class='list-group-item'>
+		{{ salesPerson.name}} 
+		<button ng-click='destroy(salesPerson)' class='btn btn-danger pull-right'>delete</button>
+		<br clear='all'>
+		</li>
+	</ul>
+</div>
